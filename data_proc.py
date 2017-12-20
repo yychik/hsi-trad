@@ -240,7 +240,7 @@ def get_batch(inputs, labels, batch_size, steps):
         for ii in range(n * batch_size, (n + 1) * batch_size):
                         
             inputs_batch.append(inputs[ii : ii + steps, :])
-            labels_batch.append(labels[ii + steps])
+            labels_batch.append(labels[ii : ii + steps])
         
         #Return batches
         yield np.stack(inputs_batch), np.stack(labels_batch)
